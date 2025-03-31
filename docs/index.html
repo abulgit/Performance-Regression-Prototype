@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D Language Performance Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>D Language Performance Dashboard</h1>
+        <p>Last updated: 2025-03-31T23:11:47.3551562</p>
+    </header>
+
+    <main>
+        <div class="dashboard-intro">
+            <p>This dashboard tracks the compilation performance of the D programming language compiler (DMD).
+            Performance metrics help identify regressions and improvements as the codebase evolves.</p>
+        </div>
+
+        <h2>Benchmark Summary</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Benchmark</th>
+                    <th>Latest Compilation Time (s)</th>
+                    <th>vs Previous</th>
+                    <th>Binary Size (KB)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="large_switch.html">large_switch</a></td>
+                    <td>0.447</td>
+                    <td class="improvement">-26.48%</td>
+                    <td>854.50</td>
+                </tr>
+                <tr>
+                    <td><a href="template_heavy.html">template_heavy</a></td>
+                    <td>3.850</td>
+                    <td class="improvement">-0.65%</td>
+                    <td>551.00</td>
+                </tr>
+                <tr>
+                    <td><a href="phobos_mini.html">phobos_mini</a></td>
+                    <td>0.305</td>
+                    <td class="improvement">-4.39%</td>
+                    <td>550.50</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="dashboard-info">
+            <h2>About the Benchmarks</h2>
+            <dl>
+                <dt>large_switch</dt>
+                <dd>Tests compiler performance with large switch statements</dd>
+
+                <dt>template_heavy</dt>
+                <dd>Evaluates template instantiation and compile-time function evaluation</dd>
+
+                <dt>phobos_mini</dt>
+                <dd>Measures compilation of standard library features</dd>
+            </dl>
+        </div>
+    </main>
+
+    <footer>
+        <p>D Language Performance Regression Publisher</p>
+    </footer>
+</body>
+</html>
