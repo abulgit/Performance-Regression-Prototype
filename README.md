@@ -76,13 +76,6 @@ benchmarks/
     main.d
 ```
 
-## Types of benchmarks
-
-I've set up three types (but feel free to add more):
-
-- **RealWorld**: Actual D code people use (Phobos, etc)
-- **Synthetic**: Artificial tests that stress specific features
-- **Micro**: Tiny benchmarks for specific compiler parts
 
 ## CI Integration
 
