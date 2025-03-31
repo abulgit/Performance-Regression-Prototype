@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phobos_mini - D Language Performance Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>phobos_mini Performance</h1>
+        <p><a href="index.html">← Back to Dashboard</a></p>
+    </header>
+
+    <main>
+        <div class="benchmark-summary">
+            <h2>Performance Overview</h2>
+
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-label">Latest Compilation Time</span>
+                    <span class="stat-value">0.305 seconds</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Binary Size</span>
+                    <span class="stat-value">550.50 KB</span>
+                </div>
+
+                <div class="stat-box">
+                    <span class="stat-label">vs Previous Run</span>
+                    <span class="stat-value improvement">-4.39%</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="chart-container">
+            <canvas id="compilationTimeChart"></canvas>
+        </div>
+
+        <h2>Results History</h2>
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Compiler</th>
+                    <th>Compilation Time (s)</th>
+                    <th>Memory Usage (MB)</th>
+                    <th>Binary Size (KB)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-Mar-31 23:11:43.1821639</td>
+                    <td>D:\D\dmd2\windows\bin64\dmd.exe</td>
+                    <td>0.305</td>
+                    <td>0.00</td>
+                    <td>550.50</td>
+                </tr>
+                <tr>
+                    <td>2025-Mar-31 23:11:30.3598334</td>
+                    <td>D:\D\dmd2\windows\bin64\dmd.exe</td>
+                    <td>0.319</td>
+                    <td>0.00</td>
+                    <td>550.50</td>
+                </tr>
+                <tr>
+                    <td>2025-Mar-31 23:10:28.9722002</td>
+                    <td>D:\D\dmd2\windows\bin64\dmd.exe</td>
+                    <td>0.352</td>
+                    <td>0.00</td>
+                    <td>550.50</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>D Language Performance Regression Publisher</a></p>
+    </footer>
+
+    <script>
+        // Chart initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('compilationTimeChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["2025-Mar-31 23:11:43.1821639", "2025-Mar-31 23:11:30.3598334", "2025-Mar-31 23:10:28.9722002"],
+                    datasets: [{
+                        label: 'Compilation Time (s)',
+                        data: [0.305, 0.319, 0.352],
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.2,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Compilation Time History',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 20
+                            }
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Seconds'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

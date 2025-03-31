@@ -1,0 +1,4 @@
+benchmark,compiler,timestamp,compilation_time,memory_usage,binary_size,lexing_time,parsing_time,semantic_time,codegen_time
+phobos_mini,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:10:28.9722002,0.352,0,563712,nan,nan,nan,nan
+phobos_mini,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:11:30.3598334,0.319,0,563712,nan,nan,nan,nan
+phobos_mini,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:11:43.1821639,0.305,0,563712,nan,nan,nan,nan

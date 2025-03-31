@@ -1,0 +1,21 @@
+name "performance-regression-publisher"
+description "D Language Performance Regression Publisher"
+authors "Abul Hossain Khan"
+copyright "Copyright © 2023"
+license "MIT"
+
+targetType "executable"
+targetPath "bin"
+sourcePaths "src"
+mainSourceFile "src/app.d"
+
+
+configuration "debug" {
+    buildOptions "debugMode" "debugInfo"
+    versions "VerboseLogging"
+}
+
+configuration "release" {
+    buildOptions "releaseMode" "optimize" "inline"
+    versions "DisableLogging"
+}

@@ -1,0 +1,172 @@
+/* Modern dashboard styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+}
+
+header {
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+header h1 {
+    color: #343a40;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    border-top: 2px solid #e9ecef;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.chart-container {
+    height: 400px;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+    color: #495057;
+}
+
+.summary-table tr:hover {
+    background-color: #f1f3f5;
+}
+
+.improvement {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.regression {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+main h2 {
+    color: #343a40;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.results-table {
+    font-size: 0.95rem;
+}
+
+/* New styles for the enhanced UI */
+.dashboard-intro {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.dashboard-intro p {
+    margin: 0;
+    color: #495057;
+}
+
+.dashboard-info {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.dashboard-info dt {
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 1rem;
+}
+
+.dashboard-info dt:first-child {
+    margin-top: 0;
+}
+
+.dashboard-info dd {
+    margin-left: 0;
+    color: #495057;
+}
+
+.benchmark-summary {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.benchmark-summary h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.stat-box {
+    flex: 1;
+    min-width: 200px;
+    background-color: #f1f3f5;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #343a40;
+}
+

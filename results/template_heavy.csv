@@ -1,0 +1,4 @@
+benchmark,compiler,timestamp,compilation_time,memory_usage,binary_size,lexing_time,parsing_time,semantic_time,codegen_time
+template_heavy,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:10:29.3273382,3.879,0,564224,nan,nan,nan,nan
+template_heavy,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:11:30.6813798,3.875,0,564224,nan,nan,nan,nan
+template_heavy,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:11:43.4910494,3.850,0,564224,nan,nan,nan,nan

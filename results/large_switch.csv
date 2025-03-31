@@ -1,0 +1,4 @@
+benchmark,compiler,timestamp,compilation_time,memory_usage,binary_size,lexing_time,parsing_time,semantic_time,codegen_time
+large_switch,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:10:28.532446,0.435,0,875008,nan,nan,nan,nan
+large_switch,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:11:29.7481772,0.608,0,875008,nan,nan,nan,nan
+large_switch,D:\D\dmd2\windows\bin64\dmd.exe,2025-03-31T23:11:42.7317319,0.447,0,875008,nan,nan,nan,nan

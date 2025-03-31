@@ -1,0 +1,85 @@
+name: DMD Performance Benchmark
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'compiler/**'
+      - 'phobos/**'
+      - '.github/workflows/performance-benchmark.yml'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  performance_benchmark:
+    name: Run Performance Benchmark
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+
+      - name: Set up compiler paths
+        run: |
+          echo "Setting up compiler paths"
+          # Build the DMD compiler from master
+          cd dmd/compiler/src
+          git checkout master
+          ldc2 -i dmd/main.d -ofdmdmaster -Jdmd/res -J../..
+
+          # Build the DMD compiler from the PR branch
+          git checkout ${{ github.event.pull_request.head.sha }}
+          ldc2 -i dmd/main.d -ofdmdbranch -Jdmd/res -J../..
+
+          # Make compilers available to the benchmark runner
+          mkdir -p ../../bin
+          cp dmdmaster ../../bin/
+          cp dmdbranch ../../bin/
+
+      - name: Build performance regression publisher
+        run: |
+          cd performance-regression-publisher
+          dub build --compiler=ldc2 --build=release
+
+      - name: Run performance benchmarks
+        run: |
+          cd performance-regression-publisher
+          ./bin/performance-regression-publisher --baseline=../bin/dmdmaster --test=../bin/dmdbranch --dashboard
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v3
+        with:
+          name: benchmark-results
+          path: performance-regression-publisher/results
+
+      - name: Upload performance dashboard
+        uses: actions/upload-artifact@v3
+        with:
+          name: performance-dashboard
+          path: performance-regression-publisher/dashboard
+
+      - name: Check for performance regressions
+        run: |
+          cd performance-regression-publisher
+          # Check CSV files for significant regressions
+          # This is a simplified check that would be more sophisticated in practice
+          if grep -q "regression" results/*.csv; then
+            echo "WARNING: Performance regression detected!"
+            exit 1
+          fi
+
+      # Future enhancement: Post results as PR comment
+      # - name: Post PR comment
+      #   if: github.event_name == 'pull_request'
+      #   uses: actions/github-script@v6
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     script: |
+      #       // Post benchmark results as PR comment
+      #       // This would be implemented in a real project
